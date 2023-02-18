@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Converter from "../../components/pages/calculator/converter";
+import Converter from "../../components/pages/calculator/Converter";
 import Input from "../../components/ui/Input";
 import MainLayout from "../../components/ui/MainLayout";
 import { Amount, BoldText, Wrapper } from "./styled";

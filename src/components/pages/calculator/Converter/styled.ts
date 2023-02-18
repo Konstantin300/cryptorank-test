@@ -12,3 +12,8 @@ export const Wrapper = styled.section`
     display: flex;
     flex-direction: column;
     gap: 40px`
+
+export const Text = styled.span`
+    font-size: 15px;
+    font-weight: 600;
+    color: #2D3236;`
