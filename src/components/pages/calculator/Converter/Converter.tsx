@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { useCurrencies } from "../../../../hooks/useCurrencies";
 import Select from "react-select";
-import { SelectWrapper, Wrapper } from "./styled";
+import { SelectWrapper, Text, Wrapper } from "./styled";
 import { SelectCurrency } from "../../../../types/currencies";
 
 type Props = {
@@ -12,7 +12,7 @@ const Converter: FC<Props> = ({ amount = 1 }) => {
   const [fromCurrency, setFromCurrency] = useState<SelectCurrency>();
   const [toCurrency, setToCurrency] = useState<SelectCurrency>();
   const [sum, setSum] = useState(0);
-  const currencies = useCurrencies();
+  const currencies = useCurrencies(10);
 
   useEffect(() => {
     if (!currencies || !fromCurrency || !toCurrency) {
@@ -54,11 +54,11 @@ const Converter: FC<Props> = ({ amount = 1 }) => {
       </SelectWrapper>
 
       {fromCurrency && toCurrency && (
-        <div>
+        <Text>
           {`${amount} ${fromCurrency.label} = ${sum.toFixed(3)} ${
             toCurrency.label
           }`}
-        </div>
+        </Text>
       )}
     </Wrapper>
   );

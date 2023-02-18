@@ -3,6 +3,7 @@ export type Currencies = {
     category: string;
     name: string;
     symbol: string;
+    circulatingSupply: number;
     values: {
         USD: {
             price: number;
