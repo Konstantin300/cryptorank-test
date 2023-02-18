@@ -16,3 +16,12 @@ export type SelectCurrency = {
     value: string;
     label: string;
 }
+
+export type BitcoinType = {
+    athPrice: {
+        USD: number;
+    },
+    price: {
+        USD: number;
+    }
+}

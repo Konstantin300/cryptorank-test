@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Table from "../../components/pages/watchlist/Table";
 import MainLayout from "../../components/ui/MainLayout";
 import Select from "react-select";
