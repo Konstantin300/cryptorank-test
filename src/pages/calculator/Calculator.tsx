@@ -6,7 +6,6 @@ import { Amount, BoldText, Wrapper } from "./styled";
 
 const Calculator = () => {
   const [amount, setAmount] = useState(1);
-  console.log(amount);
   return (
     <MainLayout>
       <Wrapper>

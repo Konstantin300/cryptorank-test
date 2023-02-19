@@ -41,12 +41,16 @@ const Converter: FC<Props> = ({ amount = 1 }) => {
     <Wrapper>
       <SelectWrapper>
         <Select
+          aria-label="firstCurrency"
           onChange={handleChangeFirstCurrency}
           placeholder="Search currencies"
           options={options}
+          inputId="firstCurrency"
         />
 
         <Select
+          aria-label="secondCurrency"
+          name="secondCurrency"
           onChange={handleChangeSecondCurrency}
           placeholder="Search currencies"
           options={options}
