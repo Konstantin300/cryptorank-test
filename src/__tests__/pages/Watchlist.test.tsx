@@ -1,5 +1,4 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import Calculator from "../../pages/calculator/Calculator";
 import "@testing-library/jest-dom";
 import React from "react";
 import Watchlist from "../../pages/watchlist";
@@ -13,28 +12,32 @@ jest.mock("next/router", () => ({
 }));
 
 jest.mock("../../hooks/useCurrencies", () => ({
-  useCurrencies: () => [
-    {
-      name: "Bitcoin",
-      symbol: "BTC",
-      circulatingSupply: 10000,
-      values: {
-        USD: {
-          price: 50000,
+  useCurrencies: jest.fn(() => ({
+    currencies: [
+      {
+        name: "Bitcoin",
+        symbol: "BTC",
+        circulatingSupply: 10000,
+        values: {
+          USD: {
+            price: 50000,
+          },
         },
       },
-    },
-    {
-      name: "Ethereum",
-      symbol: "ETH",
-      circulatingSupply: 20000,
-      values: {
-        USD: {
-          price: 2000,
+      {
+        name: "Ethereum",
+        symbol: "ETH",
+        circulatingSupply: 20000,
+        values: {
+          USD: {
+            price: 2000,
+          },
         },
       },
-    },
-  ],
+    ],
+    isLoading: false,
+    error: null,
+  })),
 }));
 
 describe("Watchlist", () => {

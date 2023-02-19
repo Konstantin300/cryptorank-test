@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.header`
 display: flex;
-justify-content: center;
-gap: 120px;
+justify-content: space-around;
 align-items: center;
 height: 60px;
 background-color: #f5f5f5;

@@ -7,6 +7,21 @@ export const Wrapper = styled.div`
   align-items: center;
   `;
 
+export const MainContainer = styled.section`
+  height: fit-content;
+  display: flex;
+  height: 50vh;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 10px;
+  padding-top: 40px;
+  `
+
 export const Amount = styled.div`
     display: flex;
     justify-content: center;

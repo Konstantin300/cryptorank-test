@@ -3,7 +3,6 @@ import { getAthData } from "../../helpers/getAthData";
 
 describe('getAthData', () => {
     it('calculates percentage from and to ATH correctly', async () => {
-      // mock the response from getBitcoinData
       jest.spyOn(axios, 'get').mockResolvedValueOnce({
         data: {
           data: {
@@ -14,8 +13,9 @@ describe('getAthData', () => {
       });
   
       const result = await getAthData();
-      expect(result.fromAth).toBe(-50);
-      expect(result.toAth).toBe(100);
+      
+      expect(result?.fromAth).toBe(-50);
+      expect(result?.toAth).toBe(100);
     });
   });
   

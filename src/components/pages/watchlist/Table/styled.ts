@@ -21,3 +21,5 @@ export const StyledTable = styled.table`
 export const TableHeader = styled.th`
     padding: 1rem;
   `
+export const TableWrapper = styled.div`
+overflow: scroll;`

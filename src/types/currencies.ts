@@ -12,8 +12,8 @@ export type Currencies = {
     type: string;
 }
 
-export type SelectCurrency = {
-    value: string;
+export type SelectedCurrency = {
+    value: number;
     label: string;
 }
 

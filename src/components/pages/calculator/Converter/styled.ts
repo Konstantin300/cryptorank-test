@@ -2,9 +2,14 @@ import styled from "styled-components";
 
 export const SelectWrapper = styled.div`
     width: 100%;
-    max-width: 500px;
+    max-width: 800px;
     display: flex;
-    gap: 20px;
+    gap: 10px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 export const Wrapper = styled.section`
@@ -14,6 +19,15 @@ export const Wrapper = styled.section`
     gap: 40px`
 
 export const Text = styled.span`
+    margin: 0 auto;
     font-size: 15px;
     font-weight: 600;
     color: #2D3236;`
+
+export const SwitchButton = styled.button`
+    border: none;
+    width: 50px;
+    background-color: transparent;
+    &:hover {
+        cursor: pointer;
+    }`

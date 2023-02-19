@@ -1,26 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Table from "../../components/pages/watchlist/Table";
 import MainLayout from "../../components/ui/MainLayout";
 import Select from "react-select";
 import { useCurrencies } from "../../hooks/useCurrencies";
 import { SelectWrapper } from "../../components/pages/calculator/Converter/styled";
+import { SelectedCurrency as SelectedCurrency } from "../../types/currencies";
 
 const Watchlist = () => {
-  const currencies = useCurrencies(4);
-  const [selectedCurrency, setSelectedCurrency] = useState<any>({
+  const { currencies, isLoading } = useCurrencies(4);
+
+  const [selectedCurrency, setSelectedCurrency] = useState<SelectedCurrency>({
     label: "USDT",
     value: 1,
   });
-  const options = currencies?.map((currency) => ({
-    value: currency.values.USD.price,
-    label: currency.symbol,
-  }));
 
-  const handleChange = (currency: any) => {
-    setSelectedCurrency(currency);
-  };
+  const options = useMemo(() => {
+    if (!currencies) {
+      return [];
+    }
+    return currencies.map((currency) => ({
+      value: currency.values.USD.price,
+      label: currency.symbol,
+    }));
+  }, [currencies]);
 
-  if (!currencies) return <div>Loading...</div>;
+  const handleChange = useCallback((currency: SelectedCurrency | null) => {
+    if (currency) {
+      setSelectedCurrency(currency);
+    }
+  }, []);
+
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <MainLayout>

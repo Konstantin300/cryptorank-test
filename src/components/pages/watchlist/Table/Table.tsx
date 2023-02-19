@@ -3,17 +3,15 @@ import React, { FC, useMemo } from "react";
 import { useCurrencies } from "../../../../hooks/useCurrencies";
 import { useTable, Column } from "react-table";
 import formatNumber from "../../../../helpers/formatNumber";
-import { Cell, Row, StyledTable, TableHeader } from "./styled";
+import { Cell, Row, StyledTable, TableHeader, TableWrapper } from "./styled";
+import { SelectedCurrency } from "../../../../types/currencies";
 
 type Props = {
-  selectedCurrency: {
-    value: number;
-    label: string;
-  };
+  selectedCurrency: SelectedCurrency;
 };
 
 const Table: FC<Props> = ({ selectedCurrency }) => {
-  const currencies = useCurrencies(30);
+  const { currencies, isLoading } = useCurrencies(30);
 
   const columns: Column[] = useMemo(
     () => [
@@ -64,34 +62,38 @@ const Table: FC<Props> = ({ selectedCurrency }) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data: data || [] });
 
+  if (isLoading) return <div>Loading...</div>;
+
   return (
-    <StyledTable {...getTableProps()}>
-      <thead>
-        {headerGroups.map((headerGroup) => (
-          <Row {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column) => (
-              <TableHeader {...column.getHeaderProps()}>
-                {column.render("Header")}
-              </TableHeader>
-            ))}
-          </Row>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row) => {
-          prepareRow(row);
-          return (
-            <Row {...row.getRowProps()}>
-              {row.cells.map((cell) => {
-                return (
-                  <Cell {...cell.getCellProps()}>{cell.render("Cell")}</Cell>
-                );
-              })}
+    <TableWrapper>
+      <StyledTable {...getTableProps()}>
+        <thead>
+          {headerGroups.map((headerGroup) => (
+            <Row {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                <TableHeader {...column.getHeaderProps()}>
+                  {column.render("Header")}
+                </TableHeader>
+              ))}
             </Row>
-          );
-        })}
-      </tbody>
-    </StyledTable>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row) => {
+            prepareRow(row);
+            return (
+              <Row {...row.getRowProps()}>
+                {row.cells.map((cell) => {
+                  return (
+                    <Cell {...cell.getCellProps()}>{cell.render("Cell")}</Cell>
+                  );
+                })}
+              </Row>
+            );
+          })}
+        </tbody>
+      </StyledTable>
+    </TableWrapper>
   );
 };
 
