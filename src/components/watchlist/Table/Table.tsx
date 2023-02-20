@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-key */
 import React, { FC, useMemo } from "react";
-import { useCurrencies } from "../../../../hooks/useCurrencies";
+import { useCurrencies } from "../../../hooks/useCurrencies";
 import { useTable, Column } from "react-table";
-import formatNumber from "../../../../helpers/formatNumber";
+import formatNumber from "../../../helpers/formatNumber";
 import { Cell, Row, StyledTable, TableHeader, TableWrapper } from "./styled";
-import { SelectedCurrency } from "../../../../types/currencies";
+import { SelectedCurrency } from "../../../types/currencies";
 
 type Props = {
   selectedCurrency: SelectedCurrency;
@@ -68,9 +68,9 @@ const Table: FC<Props> = ({ selectedCurrency }) => {
     <TableWrapper>
       <StyledTable {...getTableProps()}>
         <thead>
-          {headerGroups.map((headerGroup) => (
+          {headerGroups.map((headerGroup, index) => (
             <Row {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
+              {headerGroup.headers.map((column, index) => (
                 <TableHeader {...column.getHeaderProps()}>
                   {column.render("Header")}
                 </TableHeader>

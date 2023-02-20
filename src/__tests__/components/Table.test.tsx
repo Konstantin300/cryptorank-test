@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Table from "../../components/pages/watchlist/Table";
+import Table from "../../components/watchlist/Table";
 
 const mockSelectedCurrency = {
   value: 1,

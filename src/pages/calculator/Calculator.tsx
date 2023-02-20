@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import Converter from "../../components/pages/calculator/Converter";
+import Converter from "../../components/calculator/Converter";
 import Input from "../../components/ui/Input";
 import MainLayout from "../../components/ui/MainLayout";
-import { Amount, BoldText, MainContainer, Wrapper } from "./styled";
+import {
+  Amount,
+  BoldText,
+  MainContainer,
+  Wrapper,
+} from "../../styles/Calculator/styled";
 
 const Calculator = () => {
   const [amount, setAmount] = useState(1);

@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent, screen, waitFor } from "@testing-library/react";
-import Converter from "../../components/pages/calculator/Converter";
+import Converter from "../../components/calculator/Converter";
 import "@testing-library/jest-dom";
 
 describe("Converter", () => {

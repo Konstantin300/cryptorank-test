@@ -1,9 +1,9 @@
 import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
-import { useCurrencies } from "../../../../hooks/useCurrencies";
+import { useCurrencies } from "../../../hooks/useCurrencies";
 import Select from "react-select";
 import { SelectWrapper, SwitchButton, Text, Wrapper } from "./styled";
-import { SelectedCurrency } from "../../../../types/currencies";
-import Arrows from "../../../../assets/svg/Arrows";
+import { SelectedCurrency } from "../../../types/currencies";
+import Arrows from "../../../assets/svg/Arrows";
 
 type Props = {
   amount: number;

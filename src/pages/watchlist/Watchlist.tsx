@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import Table from "../../components/pages/watchlist/Table";
+import Table from "../../components/watchlist/Table";
 import MainLayout from "../../components/ui/MainLayout";
 import Select from "react-select";
 import { useCurrencies } from "../../hooks/useCurrencies";
-import { SelectWrapper } from "../../components/pages/calculator/Converter/styled";
+import { SelectWrapper } from "../../components/calculator/Converter/styled";
 import { SelectedCurrency as SelectedCurrency } from "../../types/currencies";
 
 const Watchlist = () => {
